@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.zynorl.mrrtx.mapper.ITeacherDao">
+
+    <select id="queryTeacherInfoByTeacherId" parameterType="top.zynorl.mrrtx.entity.Teacher"
+            resultType="top.zynorl.mrrtx.entity.Teacher">
+        SELECT id, teacherId, teacherName, teacherPassword, createTime
+        FROM teacher
+        where teacherId = #{teacherId}
+    </select>
+
+    <insert id="insertTeacher" parameterType="top.zynorl.mrrtx.entity.Teacher">
+        insert into teacher
+        (id, teacherId, teacherName, teacherPassword,createTime, updateTime)
+        values
+        (#{id},#{teacherId},#{teacherName},#{teacherPassword},now(),now())
+    </insert>
+
+</mapper>
